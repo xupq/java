@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/activiti?useUnicode=true&nullCatalogMeansCurrent=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+      password: 123456
+

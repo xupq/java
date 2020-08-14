@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        # 服务注册id
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        # 服务注册名称
+        serviceName: ${spring.application.name}
+        # 服务注册标签
+        tags: version=1.0.0-SNAPSHOT
+        # 健康检查间隔
+        health-check-interval: 15s
+        # 健康检查地址
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/actuator/health
+        register: true
+      config:
+        format: yaml
+        prefix: smart-service
+        data-key: config
+        watch:
+          enabled: true
+
